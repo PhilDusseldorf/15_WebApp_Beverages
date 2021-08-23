@@ -33,7 +33,9 @@ function controller()
 ausgabe(getInput());
 function getInput()
 {
-    return 2;
+    const inputField = document.getElementsByName("eingabe")[0];
+    let age = parseInt(inputField.value);
+    return age;
 }
 
 //Modul: Business-Logic (Mapping) | Test:
