@@ -1,11 +1,13 @@
 
 /* View- Controller */
 
+// Regex: [0-9]{1,3}
+
 /* Der Plan
     Einlesen Daten von Webseite :: toDo
 	Check Daten :: toDo
     Btn. Trigger :: toDo
-    Business-Logic (Alter --> Getränk) :: toDo
+    Business-Logic (Alter --> Getränk) :: CHECK
     Bild austauschen :: CHECK
 */
 
@@ -17,20 +19,42 @@ function controller()
 }
 
 
-// Trigger - Btn 
-
+// Trigger - BtnClick
+const btn = document.getElementById("trigBtn");
+btn.addEventListener("click", actOnClick);
 
 // Trigger - Input
-
+const field = document.getElementsByName("eingabe")[0];
+field.addEventListener("input", isInputValid);
 
 // Event-Dispatcher
-
+function actOnClick()
+{
+    if (isInputValid())
+    {
+        controller();
+    }
+    else
+    {
+        ausgabe("Input nicht korrekt!")
+    }
+}
 
 // Modul: Check auf korrekte Eingaben ...
-
+function isInputValid()
+{
+    let inputStr = field.value;
+    let patt = /^[0-9]{1,3}$/g;
+    let cond = patt.test(inputStr);
+    if(!cond)
+    {
+        field.value = "";
+        updateImg(data.default.bev);
+    }
+}
 
 // Modul: Eingabe | Test:
-ausgabe(getInput());
+// ausgabe(getInput());
 function getInput()
 {
     const inputField = document.getElementsByName("eingabe")[0];
