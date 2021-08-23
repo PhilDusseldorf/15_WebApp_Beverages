@@ -6,7 +6,7 @@
 	Check Daten :: toDo
     Btn. Trigger :: toDo
     Business-Logic (Alter --> Getränk) :: toDo
-    Bild austauschen :: toDo
+    Bild austauschen :: CHECK
 */
 
 // Modul Ablaufsteuerung | Test:
@@ -33,7 +33,13 @@
 
 
 // Modul: Bild aktualisieren | Test:
-
+// ausgabe(updateImg("wein"));
+function updateImg(imgName)
+{
+    let img = document.getElementById("bevImg");
+    img.src = "./bilder/"+imgName+".jpg";
+    return imgName; // only for monitoring
+}
 
 //Modul: Konsolenausgabe --> Test:
 function ausgabe(outputStr) {
