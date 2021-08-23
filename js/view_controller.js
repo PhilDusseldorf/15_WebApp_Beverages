@@ -4,9 +4,9 @@
 // Regex: [0-9]{1,3}
 
 /* Der Plan
-    Einlesen Daten von Webseite :: toDo
-	Check Daten :: toDo
-    Btn. Trigger :: toDo
+    Einlesen Daten von Webseite :: CHECK
+	Check Daten :: CHECK
+    Btn. Trigger :: CHECK
     Business-Logic (Alter --> Getränk) :: CHECK
     Bild austauschen :: CHECK
 */
@@ -41,25 +41,23 @@ function actOnClick()
 }
 
 // Modul: Check auf korrekte Eingaben ...
-function isInputValid()
-{
+function isInputValid() {
+
     let inputStr = field.value;
-    let patt = /^[0-9]{1,3}$/g;
+    let patt = /^[0-9]{1,3}$/g;   // 0 - 999
     let cond = patt.test(inputStr);
-    if(!cond)
-    {
+   
+    if (!cond) {  // Fehlerbehandlung
         field.value = "";
         updateImg(data.default.bev);
     }
+    return cond;
 }
 
 // Modul: Eingabe | Test:
 // ausgabe(getInput());
-function getInput()
-{
-    const inputField = document.getElementsByName("eingabe")[0];
-    let age = parseInt(inputField.value);
-    return age;
+function getInput() {
+    return parseInt(field.value);
 }
 
 //Modul: Business-Logic (Mapping) | Test:
